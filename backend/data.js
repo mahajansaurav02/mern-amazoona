@@ -30,7 +30,7 @@ const data={
             category:"Pants",
             image:"/images/p3.jpg",
             price:999,
-            countInStock:50,
+            countInStock:0,
             brand:"Nike",
             rating:4.4,
             numReviews:15,
@@ -47,6 +47,18 @@ const data={
             brand:"Puma",
             rating:4.6,
             numReviews:10,
+            description:"HIGH Quality product",
+
+        },{
+            name:"Allen solly hoodie",
+            slug:"Black hoddie",
+            category:"Hoodie",
+            image:"/images/p5.jpg",
+            price:1599,
+            countInStock:100,
+            brand:"Allen Solly",
+            rating:3.5,
+            numReviews:6,
             description:"HIGH Quality product",
 
         }
