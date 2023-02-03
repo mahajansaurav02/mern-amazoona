@@ -39,7 +39,7 @@ const data={
         },
         {
             name:"Puma Slim pant",
-            slug:"nike-slim-pant",
+            slug:"puma-slim-pant",
             category:"Pants",
             image:"/images/p4.jpg",
             price:1299,
