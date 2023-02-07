@@ -33,10 +33,10 @@ const reducer = (state, action) => {
 export default function PlaceOrderScreen() {
   const navigate = useNavigate()
 
-const [{loading},dispatch]=useReducer(reducer,{
-  loading:false,
-  error:''
-})
+  const [{ loading }, dispatch] = useReducer(reducer, {
+    loading: false,
+    error: ''
+  })
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const {
@@ -54,35 +54,35 @@ const [{loading},dispatch]=useReducer(reducer,{
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice
 
   const placeOrderHandler = async () => {
-       try {
-        dispatch({type:"CREATE_REQUEST"})
-        const { data } = await axios.post(
-          '/api/orders',
-          {
-            orderItems: cart.cartItems,
-            shippingAddress: cart.shippingAddress,
-            paymentMethod: cart.paymentMethod,
-            itemsPrice: cart.itemsPrice,
-            shippingPrice: cart.shippingPrice,
-            taxPrice: cart.taxPrice,
-            totalPrice: cart.totalPrice,
+    try {
+      dispatch({ type: "CREATE_REQUEST" })
+      const { data } = await axios.post(
+        '/api/orders',
+        {
+          orderItems: cart.cartItems,
+          shippingAddress: cart.shippingAddress,
+          paymentMethod: cart.paymentMethod,
+          itemsPrice: cart.itemsPrice,
+          shippingPrice: cart.shippingPrice,
+          taxPrice: cart.taxPrice,
+          totalPrice: cart.totalPrice,
+        },
+        {
+          headers: {
+            authorization: `Bearer ${userInfo.token}`,
           },
-          {
-            headers: {
-              authorization: `Bearer ${userInfo.token}`,
-            },
-          }
-        );
+        }
+      );
 
-        ctxDispatch({type:"CART_CLEAR"})
-        dispatch({type:"CREATE_SUCCESS"})
-        localStorage.removeItem('cartItems');
-        navigate(`/order/${data.order._id}`);
+      ctxDispatch({ type: "CART_CLEAR" })
+      dispatch({ type: "CREATE_SUCCESS" })
+      localStorage.removeItem('cartItems');
+      navigate(`/order/${data.order._id}`);
 
-       } catch (err) {
-        dispatch({type:"CREATE_FAIL"})
-        toast.error(getError(err))
-       }
+    } catch (err) {
+      dispatch({ type: "CREATE_FAIL" })
+      toast.error(getError(err))
+    }
   }
 
   useEffect(() => {
@@ -190,7 +190,7 @@ const [{loading},dispatch]=useReducer(reducer,{
                     </Button>
 
                   </div>
-                  {loading&&<LoadingBox></LoadingBox>}
+                  {loading && <LoadingBox></LoadingBox>}
                 </ListGroup.Item>
 
               </ListGroup>

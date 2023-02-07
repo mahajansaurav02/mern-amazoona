@@ -54,6 +54,53 @@ if(!shippingAddress.address){
          checked={paymentMethodName==='Stripe'}
          onChange={(e)=>setPaymentMethod(e.target.value) }/>
             </div>
+
+            <div className='mb-3'>
+        <Form.Check type="radio"
+         id="UPI" 
+         label="UPI" 
+         value="UPI" 
+         checked={paymentMethodName==='UPI'}
+         onChange={(e)=>setPaymentMethod(e.target.value) }/>
+            </div>
+
+            <div className='mb-3'>
+        <Form.Check type="radio"
+         id="Pay with Debit/Credit/ATM Cards" 
+         label="Pay with Debit/Credit/ATM Cards" 
+         value="Pay with Debit/Credit/ATM Cards" 
+         checked={paymentMethodName==='Pay with Debit/Credit/ATM Cards'}
+         onChange={(e)=>setPaymentMethod(e.target.value) }/>
+            </div>
+
+            <div className='mb-3'>
+        <Form.Check type="radio"
+         id="EMI" 
+         label="EMI" 
+         value="EMI" 
+         checked={paymentMethodName==='EMI'}
+         onChange={(e)=>setPaymentMethod(e.target.value) }/>
+            </div>
+
+            <div className='mb-3'>
+        <Form.Check type="radio"
+         id="Net Banking" 
+         label="Net Banking" 
+         value="Net Banking" 
+         checked={paymentMethodName==='Net Banking'}
+         onChange={(e)=>setPaymentMethod(e.target.value) }/>
+            </div>
+
+            <div className='mb-3'>
+        <Form.Check type="radio"
+         id="COD (Cash on Delivery)" 
+         label="COD (Cash on Delivery)" 
+         value="COD (Cash on Delivery)" 
+         checked={paymentMethodName==='COD (Cash on Delivery)'}
+         onChange={(e)=>setPaymentMethod(e.target.value) }/>
+            </div>
+
+           
 <div className='mb-3'>
 <Button type="submit">Continue</Button>
 </div>
